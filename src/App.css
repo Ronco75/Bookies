@@ -33,16 +33,16 @@ header {
   justify-content: space-around;
   align-items: center;
   gap: 2rem;
-  background-color: #fff;
-  color: #202142;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
   margin: 1rem 5rem;
   border-radius: 8px;
 }
 
 .form-container {
     margin: 0 5rem;
-    background-color: #fff;
-    color: #202142;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
     padding: 1rem;
     border-radius: 8px;
     display: flex;
@@ -66,12 +66,21 @@ header {
   padding: .5rem;
   font-size: 1rem;
   border-radius: 7px;
-  background-color: #202142;
-  color: #fff;
+  /* background-color: #202142;
+  color: #fff; */
+  background-color: #fff;
+  color: #000;
+  opacity: 0.8;
+  
 }
 
 .form-btn:active{
   transform: scale(0.96);
+  opacity: 1;
+}
+
+.form-btn:hover{
+  opacity: 1;
 }
 
 label {
@@ -80,16 +89,19 @@ label {
 }
 
 input {
+  font-size: 1rem;
   padding: 8px;
   margin-bottom: 1rem;
 }
 
 select {
+  font-size: 1rem;
   padding: 8px;
   margin-bottom: 1rem;
 }
 
 .fav-btn {
+  display: flex;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   color: inherit;
@@ -116,7 +128,7 @@ select {
   border: 2px solid #202142;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  padding: .5rem 1rem;
   margin: 1rem;
 }
 
@@ -126,16 +138,21 @@ select {
 }
 
 .book button {
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   background-color: inherit;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 }
 
 .book button:active{
   transform: scale(0.9);
+}
+
+.book button:hover{
+  border: 1px solid #202142;
 }
 
