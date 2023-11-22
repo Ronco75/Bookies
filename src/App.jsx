@@ -15,8 +15,8 @@ function App() {
     <Form />
     <div className="container">
     <BooksList booksData={booksData}>To-Buy</BooksList>
-    <BooksList>To-Read</BooksList>
-    <BooksList>Already Read</BooksList>
+    <BooksList booksData={booksData}>To-Read</BooksList>
+    <BooksList booksData={booksData}>Already Read</BooksList>
     </div>
     </>
   )

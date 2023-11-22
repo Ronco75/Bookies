@@ -3,6 +3,7 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { IoTrashBinOutline } from "react-icons/io5";
 
 function BookButtons() {
+
   return (
     <div className="book-buttons">
     <button className="book-btn">

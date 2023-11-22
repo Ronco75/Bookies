@@ -6,6 +6,9 @@ function BooksList({ children, booksData }) {
     return <h3>No Books Yet</h3>
   }
 
+  //Filter the books based on their state
+  const filteredBooks = booksData.filter((book) => book.state === children);
+
   return (
     <>
       <div className="books-list">
@@ -18,7 +21,7 @@ function BooksList({ children, booksData }) {
         >
           {children}
         </h2>
-          {booksData.map((book) => {
+          {filteredBooks.map((book) => {
             return <>
             <BookItem key={book.id}
             text={book.bookName}
