@@ -1,9 +1,15 @@
 import BookItem from "./BookItem";
 
-function BooksList({ children, booksData }) {
+function BooksList({
+  children,
+  booksData,
+  deleteBook,
+  addToFavorites,
+  favoritesBooks,
+}) {
 
   if (!booksData || booksData.length === 0) {
-    return <h3>No Books Yet</h3>
+    return <h3>No Books Yet</h3>;
   }
 
   //Filter the books based on their state
@@ -12,22 +18,21 @@ function BooksList({ children, booksData }) {
   return (
     <>
       <div className="books-list">
-        <h2
-          style={{
-            margin: "auto",
-            borderBottom: "2px solid #fff",
-            textAlign: "center",
-          }}
-        >
-          {children}
-        </h2>
-          {filteredBooks.map((book) => {
-            return <>
-            <BookItem key={book.id}
-            text={book.bookName}
-            />
+        <h2>{children}</h2>
+        {filteredBooks.map((book) => {
+          return (
+            <>
+              <BookItem
+                key={book.id}
+                text={book.bookName}
+                deleteBook={() => deleteBook(book.id)}
+                addToFavorites={() => addToFavorites(book.id)}
+                favoritesBooks={favoritesBooks}
+                bookId={book.id}
+              />
             </>
-          })}
+          );
+        })}
       </div>
     </>
   );

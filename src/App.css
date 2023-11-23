@@ -121,6 +121,12 @@ select {
   border-radius: 10px;
 }
 
+.books-list h2{
+  margin: auto;
+  border-bottom: 2px solid #fff;
+  text-align: center;
+}
+
 .book {
   display: flex;
   justify-content: space-between;
@@ -155,4 +161,3 @@ select {
 .book button:hover{
   border: 1px solid #202142;
 }
-
