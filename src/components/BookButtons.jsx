@@ -5,7 +5,7 @@ import {
 } from "react-icons/io";
 import { IoTrashBinOutline } from "react-icons/io5";
 
-function BookButtons({ deleteBook, addToFavorites, favoritesBooks, bookId }) {
+function BookButtons({ deleteBook, addToFavorites, favoritesBooks, bookId, removeFromFavorites }) {
 
   const isFavorite = favoritesBooks.includes(bookId);
 
@@ -15,10 +15,9 @@ function BookButtons({ deleteBook, addToFavorites, favoritesBooks, bookId }) {
         <IoIosCheckboxOutline />
       </button>
       <button
-        className={`book-btn ${isFavorite ? "favorite" : ""}`}
-        onClick={() => addToFavorites(bookId)}
+        className={'book-btn'}
+        onClick={ isFavorite ? () => removeFromFavorites(bookId) : () => addToFavorites(bookId)}
       >
-      {/*//!why it's not working ?!?!? */}
         {isFavorite ? <IoIosHeart /> : <IoIosHeartEmpty />}
       </button>
       <button onClick={deleteBook} className="book-btn">

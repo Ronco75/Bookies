@@ -6,6 +6,7 @@ function BooksList({
   deleteBook,
   addToFavorites,
   favoritesBooks,
+  removeFromFavorites
 }) {
 
   if (!booksData || booksData.length === 0) {
@@ -29,6 +30,7 @@ function BooksList({
                 addToFavorites={() => addToFavorites(book.id)}
                 favoritesBooks={favoritesBooks}
                 bookId={book.id}
+                removeFromFavorites={() => removeFromFavorites(book.id)}
               />
             </>
           );
