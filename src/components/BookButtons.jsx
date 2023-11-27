@@ -22,7 +22,7 @@ function BookButtons({
         <IoIosCheckboxOutline />
       </button>
       <button
-        className={"book-btn"}
+        className="book-btn"
         onClick={
           isFavorite
             ? () => removeFromFavorites(bookId)

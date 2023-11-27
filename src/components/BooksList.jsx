@@ -8,14 +8,19 @@ function BooksList({
   favoritesBooks,
   removeFromFavorites,
 }) {
-  // console.log("BooksList Props:", children, booksData);
+
+
   //Filter the books based on their state
   const filteredBooks = booksData.filter((book) => book.state === children);
+  const hasBooks = filteredBooks.length > 0;
 
   return (
     <>
-      <div className="books-list">
+      <div className={`books-list ${hasBooks ? "with-border" : ""}`}>
+        <div className="title">
         <h2>{children}</h2>
+        <small>{filteredBooks.length}</small>
+        </div>
         {filteredBooks.length === 0 ? (
           <p>Please Add Books !</p>
         ) : (
