@@ -6,10 +6,8 @@ function Header() {
       <h1>My Books</h1>
       <div>
         <button className="fav-btn">
-        <IoIosHeartEmpty />
+          <IoIosHeartEmpty />
           Favorites
-          <i>
-          </i>
         </button>
       </div>
     </header>

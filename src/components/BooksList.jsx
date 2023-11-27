@@ -6,13 +6,9 @@ function BooksList({
   deleteBook,
   addToFavorites,
   favoritesBooks,
-  removeFromFavorites
+  removeFromFavorites,
 }) {
-
-  if (!booksData || booksData.length === 0) {
-    return <h3>No Books Yet</h3>;
-  }
-
+  // console.log("BooksList Props:", children, booksData);
   //Filter the books based on their state
   const filteredBooks = booksData.filter((book) => book.state === children);
 
@@ -20,21 +16,25 @@ function BooksList({
     <>
       <div className="books-list">
         <h2>{children}</h2>
-        {filteredBooks.map((book) => {
-          return (
-            <>
-              <BookItem
-                key={book.id}
-                text={book.bookName}
-                deleteBook={() => deleteBook(book.id)}
-                addToFavorites={() => addToFavorites(book.id)}
-                favoritesBooks={favoritesBooks}
-                bookId={book.id}
-                removeFromFavorites={() => removeFromFavorites(book.id)}
-              />
-            </>
-          );
-        })}
+        {filteredBooks.length === 0 ? (
+          <p>Please Add Books !</p>
+        ) : (
+          filteredBooks.map((book) => {
+            return (
+              <>
+                <BookItem
+                  key={book.id}
+                  text={book.bookName}
+                  deleteBook={() => deleteBook(book.id)}
+                  addToFavorites={() => addToFavorites(book.id)}
+                  favoritesBooks={favoritesBooks}
+                  bookId={book.id}
+                  removeFromFavorites={() => removeFromFavorites(book.id)}
+                />
+              </>
+            );
+          })
+        )}
       </div>
     </>
   );

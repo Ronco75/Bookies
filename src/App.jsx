@@ -16,12 +16,7 @@ function App() {
 
   const addToFavorites = (id) => {
     if (!favoritesBooks.includes(id)) {
-      if (favoritesBooks.length < 5) {
-        setFavoritesBooks([id, ...favoritesBooks]);
-        console.log(favoritesBooks);
-      } else {
-        alert("You can only have up to 5 favorite books.");
-      }
+      setFavoritesBooks([id, ...favoritesBooks]);
     } else {
       setFavoritesBooks(favoritesBooks.filter((book) => book !== id));
     }
@@ -30,17 +25,23 @@ function App() {
   const removeFromFavorites = (id) => {
     if (favoritesBooks.includes(id)) {
       setFavoritesBooks(favoritesBooks.filter((book) => book != id));
-      console.log(favoritesBooks);
     }
+  };
+
+  const addBook = (newBook) => {
+    newBook.id = Date.now();
+    console.log("Adding book:", newBook);
+    setBooksData([...booksData, newBook]);
+    console.log(booksData);
   }
 
   return (
     <>
       <Header />
-      <Form />
+      <Form addBook={addBook}/>
       <div className="container">
-
         <BooksList
+          key={1}
           booksData={booksData}
           deleteBook={deleteBook}
           addToFavorites={addToFavorites}
@@ -50,6 +51,7 @@ function App() {
           To-Buy
         </BooksList>
         <BooksList
+          key={2}
           booksData={booksData}
           deleteBook={deleteBook}
           addToFavorites={addToFavorites}
@@ -59,13 +61,14 @@ function App() {
           To-Read
         </BooksList>
         <BooksList
+          key={3}
           booksData={booksData}
           deleteBook={deleteBook}
           addToFavorites={addToFavorites}
           favoritesBooks={favoritesBooks}
           removeFromFavorites={removeFromFavorites}
         >
-          Already Read
+          Already-Read
         </BooksList>
       </div>
     </>

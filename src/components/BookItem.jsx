@@ -1,6 +1,16 @@
 import BookButtons from "./BookButtons";
 
-function Book({ text, deleteBook, addToFavorites, favoritesBooks, bookId, removeFromFavorites }) {
+function Book({
+  text,
+  deleteBook,
+  addToFavorites,
+  favoritesBooks,
+  bookId,
+  removeFromFavorites,
+}) {
+  
+  // console.log("BookItem Props:", text, favoritesBooks, bookId);
+
   return (
     <div className="book">
       <strong>{text}</strong>

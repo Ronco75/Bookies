@@ -1,18 +1,51 @@
-function Form() {
+import { useState } from "react";
+
+function Form({ addBook }) {
+  const [text, SetText] = useState();
+  const [selected, setSelected] = useState("To-Buy");
+
+  const handleTextChange = (e) => {
+    SetText(e.target.value);
+  };
+
+  const handleListChange = (e) => {
+    setSelected(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addBook({ bookName: text, state: selected });
+    SetText("");
+    setSelected("To-Buy");
+  };
+
   return (
     <>
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <div className="form-inputs">
           <div>
             <label>Book Name:</label>
-            <input type="text" id="bookName" name="bookName" required />
+            <input
+              onChange={handleTextChange}
+              type="text"
+              id="bookName"
+              name="bookName"
+              value={text || ""}
+              required
+            />
           </div>
           <div>
             <label>List:</label>
-            <select id="listSelection" name="listSelection" required>
-              <option value="to-buy">To-Buy</option>
-              <option value="to-read">To-Read</option>
-              <option value="already-read">Already Read</option>
+            <select
+              id="listSelection"
+              name="listSelection"
+              value={selected}
+              onChange={handleListChange}
+              required
+            >
+              <option value="To-Buy">To-Buy</option>
+              <option value="To-Read">To-Read</option>
+              <option value="Already-Read">Already-Read</option>
             </select>
           </div>
         </div>
