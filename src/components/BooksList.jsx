@@ -9,7 +9,6 @@ function BooksList({
   removeFromFavorites,
 }) {
 
-
   //Filter the books based on their state
   const filteredBooks = booksData.filter((book) => book.state === children);
   const hasBooks = filteredBooks.length > 0;
@@ -22,7 +21,7 @@ function BooksList({
         <small>{filteredBooks.length}</small>
         </div>
         {filteredBooks.length === 0 ? (
-          <p>Please Add Books !</p>
+          <small style={{textAlign: 'center'}}>Do yourself a favor and add some books...</small>
         ) : (
           filteredBooks.map((book) => {
             return (

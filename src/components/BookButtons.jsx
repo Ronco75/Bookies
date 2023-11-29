@@ -14,8 +14,6 @@ function BookButtons({
 }) {
   const isFavorite = favoritesBooks.includes(bookId);
 
-  // console.log("BookButtons Props:", favoritesBooks, bookId);
-
   return (
     <div className="book-buttons">
       <button className="book-btn">

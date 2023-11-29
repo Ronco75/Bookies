@@ -4,7 +4,6 @@ import BooksList from "./components/BooksList";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import BooksData from "./BooksData";
-import { v4 as uuidv4} from "uuid";
 
 function App() {
   const [booksData, setBooksData] = useState(BooksData);
@@ -30,11 +29,14 @@ function App() {
   };
 
   const addBook = (newBook) => {
-    newBook.id = uuidv4();
+    newBook.id = Date.now();
     console.log("Adding book:", newBook);
     setBooksData([...booksData, newBook]);
-    console.log(booksData);
   }
+
+// TODO: Add Route to Favorites Books;
+// TODO: Add Context API;
+// TODO: Add Dark/Light Mode;
 
   return (
     <>

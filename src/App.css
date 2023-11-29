@@ -8,12 +8,12 @@
 }
 
 body {
-  background-color: #202142;
+  background-color: #282832;
   color: #fff;
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: inherit;
   /* color: #ff6a95; */
   color: #fff;
   position: static;
@@ -24,6 +24,7 @@ header {
   align-items: center;
   padding: 0 15px;
   margin-bottom: 2rem;
+  border-bottom: 1px solid #6E727B;
 }
 
 .container {
@@ -33,7 +34,7 @@ header {
   justify-content: space-around;
   align-items: flex-start;
   gap: 2rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #32323E;
   color: #fff;
   margin: 1rem 5rem;
   border-radius: 8px;
@@ -41,7 +42,7 @@ header {
 
 .form-container {
     margin: 0 5rem;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #32323E;
     color: #fff;
     padding: 1rem;
     border-radius: 8px;
@@ -56,6 +57,7 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-bottom: 1rem;
   width: 50%;
 }
@@ -66,21 +68,20 @@ header {
   padding: .5rem;
   font-size: 1rem;
   border-radius: 7px;
-  /* background-color: #202142;
-  color: #fff; */
-  background-color: #fff;
-  color: #000;
-  opacity: 0.8;
+  color: #00AFF5; 
+  background-color: #303743;
+  opacity: 1;
   
 }
 
 .form-btn:active{
   transform: scale(0.96);
-  opacity: 1;
+  opacity: .8;
 }
 
 .form-btn:hover{
-  opacity: 1;
+  color: #fff;
+  background-color: #00AFF5;
 }
 
 label {
@@ -103,6 +104,7 @@ select {
 .fav-btn {
   display: flex;
   background-color: rgba(0, 0, 0, 0);
+  color: #00AFF5;
   border: none;
   color: inherit;
   cursor: pointer;
@@ -117,6 +119,7 @@ select {
 
 .books-list{
   height: 15rem;
+  width: 15rem;
   overflow-y: auto;
   margin: 1rem 0;
 }
@@ -139,7 +142,8 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #202142;
+  border: 1px solid #00AFF5;
+  color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: .5rem 1rem;
@@ -164,4 +168,8 @@ select {
 
 .book button:active{
   transform: scale(0.9);
+}
+
+.title small{
+  opacity: .5;
 }
