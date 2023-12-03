@@ -14,7 +14,7 @@ function Form({ addBook }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addBook({ bookName: text, state: selected });
+    addBook({ bookName: text, status: selected });
     SetText("");
     setSelected("To-Buy");
   };

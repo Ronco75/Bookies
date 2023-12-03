@@ -11,13 +11,14 @@ function BookButtons({
   favoritesBooks,
   bookId,
   removeFromFavorites,
+  transferToAnotherList,
 }) {
   const isFavorite = favoritesBooks.includes(bookId);
 
   return (
     <div className="book-buttons">
       <button className="book-btn">
-        <IoIosCheckboxOutline />
+        <IoIosCheckboxOutline onClick={transferToAnotherList} />
       </button>
       <button
         className="book-btn"

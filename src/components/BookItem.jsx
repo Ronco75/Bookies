@@ -7,9 +7,8 @@ function Book({
   favoritesBooks,
   bookId,
   removeFromFavorites,
+  transferToAnotherList,
 }) {
-  
-  // console.log("BookItem Props:", text, favoritesBooks, bookId);
 
   return (
     <div className="book">
@@ -20,6 +19,7 @@ function Book({
         favoritesBooks={favoritesBooks}
         bookId={bookId}
         removeFromFavorites={removeFromFavorites}
+        transferToAnotherList={transferToAnotherList}
       />
     </div>
   );

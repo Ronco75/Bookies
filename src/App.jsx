@@ -4,6 +4,7 @@ import BooksList from "./components/BooksList";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import BooksData from "./BooksData";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [booksData, setBooksData] = useState(BooksData);
@@ -29,19 +30,44 @@ function App() {
   };
 
   const addBook = (newBook) => {
-    newBook.id = Date.now();
+    newBook.id = uuidv4();
     console.log("Adding book:", newBook);
     setBooksData([...booksData, newBook]);
-  }
+  };
 
-// TODO: Add Route to Favorites Books;
-// TODO: Add Context API;
-// TODO: Add Dark/Light Mode;
+  const transferToAnotherList = (book) => {
+    const currentStatus = book.status;
+    let newStatus = "";
+
+    switch (currentStatus) {
+      case "To-Buy":
+        newStatus = "To-Read";
+        break;
+      case "To-Read":
+        newStatus = "Already-Read";
+        break;
+      case "Already-Read":
+        deleteBook(book.id);
+        return;
+      default:
+        break;
+    }
+
+    const updatedBooksData = booksData.map((b) =>
+      b.id === book.id ? { ...b, status: newStatus } : b
+    );
+
+    setBooksData(updatedBooksData);
+  };
+
+  // TODO: Add Route to Favorites Books;
+  // TODO: Add Context API;
+  // TODO: Add Dark/Light Mode;
 
   return (
     <>
       <Header />
-      <Form addBook={addBook}/>
+      <Form addBook={addBook} />
       <div className="container">
         <BooksList
           key={1}
@@ -50,6 +76,7 @@ function App() {
           addToFavorites={addToFavorites}
           favoritesBooks={favoritesBooks}
           removeFromFavorites={removeFromFavorites}
+          transferToAnotherList={transferToAnotherList}
         >
           To-Buy
         </BooksList>
@@ -60,6 +87,7 @@ function App() {
           addToFavorites={addToFavorites}
           favoritesBooks={favoritesBooks}
           removeFromFavorites={removeFromFavorites}
+          transferToAnotherList={transferToAnotherList}
         >
           To-Read
         </BooksList>
@@ -70,6 +98,7 @@ function App() {
           addToFavorites={addToFavorites}
           favoritesBooks={favoritesBooks}
           removeFromFavorites={removeFromFavorites}
+          transferToAnotherList={transferToAnotherList}
         >
           Already-Read
         </BooksList>
