@@ -31,6 +31,7 @@ function Form({ addBook }) {
               id="bookName"
               name="bookName"
               value={text || ""}
+              autoComplete="off"
               required
             />
           </div>

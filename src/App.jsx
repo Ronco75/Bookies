@@ -6,6 +6,10 @@ import Header from "./components/Header";
 import BooksData from "./BooksData";
 import { v4 as uuidv4 } from "uuid";
 
+  // TODO: Add LocalStorage;
+  // TODO: Add Route to Favorites Books;
+  // TODO: Add Dark/Light Mode;
+
 function App() {
   const [booksData, setBooksData] = useState(BooksData);
   const [favoritesBooks, setFavoritesBooks] = useState([]);
@@ -59,10 +63,6 @@ function App() {
 
     setBooksData(updatedBooksData);
   };
-
-  // TODO: Add Route to Favorites Books;
-  // TODO: Add Context API;
-  // TODO: Add Dark/Light Mode;
 
   return (
     <>
